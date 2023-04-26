@@ -91,7 +91,7 @@ def get_productos():
         return PRODUCTOS
     elif request.method == 'POST':
         data = request.get_json()
-        print(f'data: {data}')
+        print(f'data: {data}',flush=True)
         prod_id = data['marca']+'-'+data['codigo']
         PRODUCTOS[prod_id] = {'tipo': data.get('tipo'),
                     'serie': data.get('serie'),
@@ -106,4 +106,4 @@ def get_productos():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5001)
